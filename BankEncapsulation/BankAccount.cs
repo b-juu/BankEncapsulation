@@ -27,5 +27,22 @@ namespace BankEncapsulation
         {
             return _balance;
         }
+
+        public void Withdraw(double amount)
+        {
+            if (amount > 0 && _balance >= amount)
+            {
+                _balance -= amount;
+                Console.WriteLine($"Withdrawn ${amount}.");
+            }
+            else if (amount <= 0)
+            {
+                Console.WriteLine("Invalid withdrawal amount. Amount must be greater than 0.");
+            }
+            else
+            {
+                Console.WriteLine("Insufficient balance for withdrawal.");
+            }
+        }
     }
 }

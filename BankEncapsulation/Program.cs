@@ -9,8 +9,9 @@ class Program
         while (true)
         {
             Console.WriteLine("1. Deposit");
-            Console.WriteLine("2. Get Balance");
-            Console.WriteLine("3. Exit");
+            Console.WriteLine("2. Withdraw");
+            Console.WriteLine("3. Get Balance");
+            Console.WriteLine("4. Exit");
             Console.Write("Choose an option: ");
 
             int choice;
@@ -31,9 +32,21 @@ class Program
                         }
                         break;
                     case 2:
-                        Console.WriteLine($"Current balance: ${account.GetBalance()}");
+                        Console.Write("Enter the amount to withdraw: ");
+                        double withdrawAmount;
+                        if (double.TryParse(Console.ReadLine(), out withdrawAmount))
+                        {
+                            account.Withdraw(withdrawAmount);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input for withdrawal amount.");
+                        }
                         break;
                     case 3:
+                        Console.WriteLine($"Current balance: ${account.GetBalance()}");
+                        break;
+                    case 4:
                         Console.WriteLine("Exiting the program.");
                         Environment.Exit(0);
                         break;
