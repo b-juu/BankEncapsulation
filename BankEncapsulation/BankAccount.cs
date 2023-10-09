@@ -8,14 +8,14 @@ namespace BankEncapsulation
 {
     public class BankAccount
     {
-        private double balance = 0.0;
+        private double _balance = 0.0;
 
         public void Deposit(double amount)
         {
             if (amount > 0)
             {
-                balance += amount;
-                Console.WriteLine($"Deposited ${amount}. New balance: ${balance}");
+                _balance += amount;
+                Console.WriteLine($"Deposited ${amount}.");
             }
             else
             {
@@ -25,7 +25,7 @@ namespace BankEncapsulation
 
         public double GetBalance()
         {
-            return balance;
+            return _balance;
         }
     }
 }
